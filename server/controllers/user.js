@@ -35,3 +35,20 @@ exports.registerUser = async (req, res) => {
     res.status(500).json(error);
   }
 };
+
+exports.loginUser = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    let user = await Users.findOne({ email });
+    if (!user) return res.status(400).json("Login or password is incorrect!");
+
+    const isValidPassword = await bcrypt.compare(password, user.password);
+    if (!isValidPassword)
+      return res.status(400).json("Login or password is incorrect!");
+    const token = createToken(user._id);
+    res.status(200).json({ _id: user._id, name: user.name, email, token });
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};
