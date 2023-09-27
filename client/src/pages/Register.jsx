@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 const Register = () => {
   const {
+    user,
     registerInfo,
     updateRegisterInfo,
     registerUser,
