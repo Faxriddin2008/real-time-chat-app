@@ -1,5 +1,9 @@
 const Chat = () => {
-  return <>Chat</>;
+  return (
+    <>
+      <p className="text-secondary">Chat</p>
+    </>
+  );
 };
 
 export default Chat;
