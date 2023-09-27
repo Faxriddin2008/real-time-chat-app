@@ -1,7 +1,7 @@
 const Chat = () => {
   return (
     <>
-      <p className="text-secondary">Chat</p>
+      <p>Chat</p>
     </>
   );
 };

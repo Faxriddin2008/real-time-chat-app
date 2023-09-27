@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <NavBar />
-      <Container>
+      <Container className="text-secondary">
         <Routes>
           <Route path="/" element={<Chat />} />
           <Route path="/login" element={<Login />} />
