@@ -13,6 +13,9 @@ const createToken = (_id) => {
 exports.registerUser = async (req, res) => {
   try {
     const { name, email, password } = req.body;
+    if (!name || !email || !password)
+      return res.status(400).json("All fields are required!");
+
     let user = await Users.findOne({ email });
     if (user) return res.status(400).json("User already exist with this email");
     if (!validator.isEmail(email))
