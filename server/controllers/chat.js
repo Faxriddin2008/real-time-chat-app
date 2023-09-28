@@ -16,3 +16,13 @@ export const createChat = async (req, res) => {
     res.status(500).json(error);
   }
 };
+
+export const findUserChats = async (req, res) => {
+  const userId = req.params.userId;
+  try {
+    const chats = await Chats.find({ members: { $in: [userId] } });
+    res.status(200).json(chats);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};
