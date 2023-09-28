@@ -9,3 +9,13 @@ exports.createMessage = async (req, res) => {
     res.status(500).json(error);
   }
 };
+
+exports.getMessages = async (req, res) => {
+  const { chatId } = req.params;
+  try {
+    const messages = await Messages.find({ chatId });
+    res.status(200).json(messages);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};
