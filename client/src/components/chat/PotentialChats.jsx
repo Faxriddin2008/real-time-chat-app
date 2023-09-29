@@ -8,14 +8,14 @@ const PotentialChats = () => {
     <>
       <div className="all-users">
         {potentialChats &&
-          potentialChats.map((user, index) => {
+          potentialChats.map((u, index) => {
             return (
               <div
                 key={index}
                 className="single-user"
-                onClick={() => createChat(user._id, user._id)}
+                onClick={() => createChat(user._id, u._id)}
               >
-                {user.name}
+                {u.name}
                 <span className="user-online"></span>
               </div>
             );
