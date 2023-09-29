@@ -4,6 +4,7 @@ import { AuthContext } from "../context/AuthContext";
 import { Container, Stack } from "react-bootstrap";
 import UserChat from "../components/chat/UserChat";
 import PotentialChats from "../components/chat/PotentialChats";
+import ChatBox from "../components/chat/ChatBox";
 
 const Chat = () => {
   const { user } = useContext(AuthContext);
@@ -25,7 +26,7 @@ const Chat = () => {
                 );
               })}
             </Stack>
-            <p>ChatBox</p>
+            <ChatBox />
           </Stack>
         )}
       </Container>

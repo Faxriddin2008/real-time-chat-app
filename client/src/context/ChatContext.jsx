@@ -89,6 +89,9 @@ export const ChatContextProvider = ({ children, user }) => {
         createChat,
         updateCurrentChat,
         currentChat,
+        messages,
+        messagesError,
+        isMessagesLoading,
       }}
     >
       {children}
