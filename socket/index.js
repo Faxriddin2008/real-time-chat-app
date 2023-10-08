@@ -14,6 +14,11 @@ io.on("connection", (socket) => {
     console.log(onlineUsers);
     socket.emit("getOnlineUsers", onlineUsers);
   });
+
+  socket.on("disconnect", () => {
+    onlineUsers = onlineUsers.filter((user) => user.socketId !== socket.id);
+    socket.emit("getOnlineUsers", onlineUsers);
+  });
 });
 
 io.listen(3000);

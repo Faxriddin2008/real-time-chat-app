@@ -32,6 +32,10 @@ export const ChatContextProvider = ({ children, user }) => {
     socket.on("getOnlineUsers", (res) => {
       setOnlineUsers(res);
     });
+
+    return () => {
+      socket.off("getOnlineUsers");
+    };
   }, [socket]);
 
   useEffect(() => {
@@ -137,6 +141,7 @@ export const ChatContextProvider = ({ children, user }) => {
         messagesError,
         isMessagesLoading,
         sendTextMessage,
+        onlineUsers,
       }}
     >
       {children}
