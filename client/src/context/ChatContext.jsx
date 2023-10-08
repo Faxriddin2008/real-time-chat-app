@@ -16,13 +16,12 @@ export const ChatContextProvider = ({ children, user }) => {
   const [newMessage, setNewMessage] = useState(null);
   const [socket, setSocket] = useState(null);
   const [onlineUsers, setOnlineUsers] = useState([]);
-  console.log(onlineUsers);
   useEffect(() => {
     const newSocket = io("http://localhost:3000");
     setSocket(newSocket);
 
     return () => {
-      newSocket.disconnect();
+      socket?.disconnect();
     };
   }, [user]);
 
