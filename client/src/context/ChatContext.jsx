@@ -45,12 +45,10 @@ export const ChatContextProvider = ({ children, user }) => {
   }, [newMessage]);
 
   useEffect(() => {
-    console.log("ihhhiixx");
     if (socket === null) return;
 
     socket.on("getMessage", (res) => {
       if (currentChat?._id !== res.chatId) return;
-      console.log(res.chatId);
 
       setMessages((prev) => [...prev, res]);
     });
